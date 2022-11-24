@@ -32,7 +32,7 @@ function Hero({}: Props) {
                 "<Take a look around>",
                 "if(you like == true):",
                 "{contact_for_job}",
-                "{contact_for_contract}",
+                "else:{contact_for_contract}",
               ]}
               loop={true}
               cursor

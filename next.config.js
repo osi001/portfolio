@@ -8,6 +8,12 @@ module.exports = nextConfig;
 
 module.exports = {
   images: {
-    domains: ["content.api.news"],
+    domains: [
+      "content.api.news",
+      "i.pinimg.com",
+      "www.clipartmax.com",
+      "logospng.org",
+      "upload.wikimedia.org",
+    ],
   },
 };
