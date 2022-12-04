@@ -13,7 +13,10 @@ const Project = (props: Props) => {
     //     Projects
     //   </h3>
 
-    <div className=" h-screen bg-[#080808] flex items-center justify-center">
+    <div
+      className=" h-screen bg-[#080808] flex items-center justify-center 
+     scrollbar scrollbar-track-gray-400/40 scrollbar-thumb-red-700"
+    >
       <div className=" max-w-5xl">
         <Swiper
           className=""

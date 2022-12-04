@@ -7,10 +7,14 @@ import About from "../components/About";
 import Project from "../components/Project";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
+import ContactMe from "../components/ContactMe";
 
 const Home: NextPage = () => {
   return (
-    <div className=" bg-[rgb(11,11,11)] text-white h-screen snap-y snap-mandatory  overflow-scroll z-0">
+    <div
+      className=" bg-[rgb(11,11,11)] text-white h-screen snap-y snap-mandatory overflow-x-hidden overflow-y-scroll z-0
+     scrollbar scrollbar-track-gray-400/40 scrollbar-thumb-red-700"
+    >
       <Head>
         <title>Portfolio</title>
       </Head>
@@ -39,7 +43,9 @@ const Home: NextPage = () => {
 
       {/* Experience */}
 
-      {/* Contact */}
+      <section id="contact" className="snap-center">
+        <ContactMe />
+      </section>
     </div>
   );
 };
