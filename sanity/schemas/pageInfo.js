@@ -31,6 +31,13 @@ export default {
         hotspot: true,
       },
     },
+
+    {
+      name: "backgroundInformation",
+      title: "BackgroundInformation",
+      type: "string",
+    },
+
     {
       name: "phoneNumber",
       title: "PhoneNumber",

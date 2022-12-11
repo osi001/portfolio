@@ -6,7 +6,7 @@ export default {
     {
       name: "title",
       title: "Title",
-      description: "Title of the skill",
+      description: "Title of the social",
       type: "string",
     },
 
