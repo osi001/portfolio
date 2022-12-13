@@ -1,11 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Project } from "../typings";
+import { urlFor } from "../sanity";
+import Image from "next/image";
 
-type Props = {};
+type Props = {
+  projects: Project[];
+};
 
-export default function Projects({}: Props) {
-  const projects = [1, 2, 3, 4, 5];
-
+export default function Projects({ projects }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -23,7 +26,7 @@ export default function Projects({}: Props) {
         className="relative w-full flex overflow-x-scroll overflow-y-hidden 
        snap-mandatory snap-x z-20  scrollbar scrollbar-track-gray-400/40 scrollbar-thumb-red-700 scrollbar-thin "
       >
-        {projects.map((project, i) => (
+        {projects?.map((project, i) => (
           // eslint-disable-next-line react/jsx-key
           <div
             className=" w-screen flex-shrink-0 snap-center flex flex-col space-y-5
@@ -34,7 +37,7 @@ export default function Projects({}: Props) {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.3 }}
               viewport={{ once: true }}
-              src="https://logospng.org/download/netflix/logo-netflix-4096.png"
+              src={urlFor(project.image).url()}
               alt=""
               width={500}
             />
@@ -45,16 +48,24 @@ export default function Projects({}: Props) {
                   {" "}
                   Case Study {i + 1} of {projects.length}:{" "}
                 </span>{" "}
-                Neflix Clone
+                {project.title}
               </h4>
 
+              <div className=" flex items-center space-x-2 justify-center">
+                {project?.technologies.map((technology) => (
+                  <Image
+                    height={60}
+                    width={60}
+                    // className=" w-20 h-20"
+                    key={technology._id}
+                    src={urlFor(technology.image).url()}
+                    alt=""
+                  />
+                ))}
+              </div>
+
               <p className="text-lg text-center md:text-left">
-                Netflex, app is a video streaming service built to clone
-                netflix, It features a beautiful home page looking exactly like
-                netflixs' with movie data pulled from tmdb.api. App features
-                complete sign in and sign out sessions with googleAuth managed
-                with firebase. It also features a stripe payment process for
-                subscriptions.
+                {project.summary}
               </p>
             </div>
           </div>

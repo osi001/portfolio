@@ -45,6 +45,7 @@ export interface PageInfo extends SnaityBody {
   phoneNumber: string;
   profilePic: Image;
   heroImage: Image;
+  backgroundInformation: string;
   name: string;
   role: string;
 }
