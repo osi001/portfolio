@@ -28,7 +28,7 @@ const Skill = ({ directionLeft, skill }: Props) => {
         // }}
         src={urlFor(skill.image).url()}
         alt=""
-        className=" border-gray-200 border-spacing-6
+        className=" rounded-full border border-gray-500 object-contain border-spacing-6
          w-12 h-12 md:w-20 md:h-20 xl:w-28 xl:h-28 filter group-hover:grayscale transition
           duration-300 ease-in-out "
       />

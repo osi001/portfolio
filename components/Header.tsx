@@ -1,7 +1,6 @@
 import React from "react";
 import { SocialIcon } from "react-social-icons";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { Social } from "../typings";
 
 type Props = {
@@ -56,14 +55,14 @@ function Header({ socials }: Props) {
           <div>
             <SocialIcon
               className=" cursor-pointer"
-              network="email"
+              network="whatsapp"
+              url="https://wa.me/+447861607475"
               fgColor="grey"
               bgColor="transparent"
             />
 
             <p className="uppercase hidden md:inline-flex text-sm text-gray-400">
-              {" "}
-              Connect with me
+              Osiano Momoh
             </p>
           </div>
         </motion.div>

@@ -14,7 +14,7 @@ const Skills = ({ skills }: Props) => {
       className="flex relative flex-col text-center md:text-left xl:flex-row xl:px-10 min-h-screen justify-center
      xl:space-y-10 mx-auto items-center"
     >
-      <h3 className="absolute top-24 xl:top-16 uppercase tracking-[20px] text-2xl text-gray-500 ">
+      <h3 className="absolute top-24 xl:top-16 uppercase tracking-[20px] text-xl text-gray-500 ">
         Skills{" "}
       </h3>
 

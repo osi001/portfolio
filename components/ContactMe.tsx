@@ -28,15 +28,16 @@ function ContactMe({}: Props) {
       className=" h-screen flex flex-col relative text-center md:text-left
    md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center "
     >
-      <h3 className=" absolute top-16 tracking-[20px] text-gray-600 md:text-2xl text-xl">
+      <h3 className=" absolute top-20 tracking-[20px] text-gray-600 md:text-2xl text-xl">
         {" "}
         CONTACT
       </h3>
 
       <div className=" flex flex-shrink-0 flex-col space-y-10">
         <h4 className=" p-4 m-4 text-lg md:text-2xl font-semibold text-center">
-          Ive got just what your looking for, get in touch and{" "}
-          <span className=" decoration-[#500202]/50 underline">Lets Work</span>!
+          Get In Touch,
+          <span className=" decoration-[#500202]/50 underline"> Lets Work</span>
+          !
         </h4>
 
         <div>

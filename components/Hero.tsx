@@ -28,11 +28,11 @@ function Hero({ pageInfo }: Props) {
           {pageInfo[0]?.role}
         </h2>
 
-        <h1 className=" text-5xl lg:text-6xl font-semibold scroll-px-10">
+        <h1 className=" p-5 text-3xl lg:text-6xl font-semibold scroll-px-10">
           <span className="mr-3 mb-3 pb-3">
             <Typewriter
               words={[
-                `Hi, My Name is ${pageInfo[0]?.name}`,
+                `Hi, I'm ${pageInfo[0]?.name}`,
                 "<Welcome to my Portfolio/>",
                 "<Take a look around>",
                 "if(you like == true):",
@@ -52,16 +52,17 @@ function Hero({ pageInfo }: Props) {
           <Link href="#about">
             <button className="heroButton"> About</button>
           </Link>
-          <Link href="#experience">
-            <button className="heroButton">Experience</button>
+
+          <Link href="#projects">
+            <button className="heroButton">Projects</button>
           </Link>
 
           <Link href="#skills">
             <button className="heroButton">Skills</button>
           </Link>
 
-          <Link href="#projects">
-            <button className="heroButton">Projects</button>
+          <Link href="#contact">
+            <button className="heroButton">Contact</button>
           </Link>
         </div>
       </div>
