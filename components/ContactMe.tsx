@@ -28,13 +28,13 @@ function ContactMe({}: Props) {
       className=" h-screen flex flex-col relative text-center md:text-left
    md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center "
     >
-      <h3 className=" absolute top-16 tracking-[20px] text-gray-600 text-2xl">
+      <h3 className=" absolute top-16 tracking-[20px] text-gray-600 md:text-2xl text-xl">
         {" "}
         CONTACT
       </h3>
 
-      <div className=" flex flex-col space-y-10">
-        <h4 className=" text-3xl font-semibold text-center">
+      <div className=" flex flex-shrink-0 flex-col space-y-10">
+        <h4 className=" p-4 m-4 text-lg md:text-2xl font-semibold text-center">
           Ive got just what your looking for, get in touch and{" "}
           <span className=" decoration-[#500202]/50 underline">Lets Work</span>!
         </h4>
@@ -42,12 +42,12 @@ function ContactMe({}: Props) {
         <div>
           <div className=" flex items-center space-x-5 justify-center">
             <PhoneIcon className=" text-red-500 h-7 w-7 animate-pulse" />
-            <p className=" text-2xl">+447576237457</p>
+            <p className="text-xl md:text-2xl">+447576237457</p>
           </div>
 
           <div className=" flex items-center space-x-5 justify-center">
             <EnvelopeIcon className=" text-red-500 h-7 w-7 animate-pulse" />
-            <p className=" text-2xl"> momohosiano001@gmail.com</p>
+            <p className=" text-xl md:text-2xl"> momohosiano001@gmail.com</p>
           </div>
         </div>
 
@@ -56,7 +56,7 @@ function ContactMe({}: Props) {
           className="flex flex-col space-y-2 mx-auto w-fit"
           action=""
         >
-          <div className=" flex space-x-2">
+          <div className="flex space-x-2">
             <input
               {...register("name")}
               placeholder="Name"

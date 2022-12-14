@@ -18,7 +18,7 @@ export default function Projects({ projects }: Props) {
      text-left md:flex-row max-w-full justify-evenly mx-auto items-center z-0
       "
     >
-      <h3 className="h-screen absolute top-14 p-2 uppercase tracking-[20px] text-gray-400 text-xl mb-2">
+      <h3 className="h-screen absolute top-20 md:top-14 xl:top-6  p-2 uppercase tracking-[20px] text-gray-400 text-xl mb-2">
         Projects
       </h3>
 
@@ -30,7 +30,7 @@ export default function Projects({ projects }: Props) {
           // eslint-disable-next-line react/jsx-key
           <div
             className=" w-screen flex-shrink-0 snap-center flex flex-col space-y-5
-          items-center justify-center p-20 md:p-44 h-screen"
+          items-center justify-center p-10 md:p-44 h-screen"
           >
             <motion.img
               initial={{ opacity: 0, y: -200 }}
@@ -42,21 +42,21 @@ export default function Projects({ projects }: Props) {
               width={500}
             />
 
-            <div className="space-y-10 px-0 md:px-10 max-w-6xl">
-              <h4 className=" text-4xl font-semibold text-center">
-                <span className=" underline decoration-white ">
+            <div className="space-y-10 md:px-5 max-w-full">
+              <h4 className=" text-2xl md:text-2xl xl:text-4xl font-semibold text-center text-gray-300">
+                {/* <span className=" text-xl underline decoration-white ">
                   {" "}
                   Case Study {i + 1} of {projects.length}:{" "}
-                </span>{" "}
+                </span>{" "} */}
                 {project.title}
               </h4>
 
-              <div className=" flex items-center space-x-2 justify-center">
+              <div className=" flex flex-shrink items-center space-x-2 justify-center">
                 {project?.technologies.map((technology) => (
                   <Image
-                    height={60}
-                    width={60}
-                    // className=" w-20 h-20"
+                    width={40}
+                    height={40}
+                    // className="w-12 h-12"
                     key={technology._id}
                     src={urlFor(technology.image).url()}
                     alt=""
@@ -64,9 +64,17 @@ export default function Projects({ projects }: Props) {
                 ))}
               </div>
 
-              <p className="text-lg text-center md:text-left">
+              <p className="text-sm md:text-lg  text-center md:text-left">
                 {project.summary}
               </p>
+
+              <div className=" mx-auto">
+                <a href={`${project.linkToBuild} `}>
+                  <button className=" bg-red-700 opacity-50 hover:opacity-100 px-5 py-3 rounded-full text-gray-100 font-bold text-lg">
+                    Build
+                  </button>
+                </a>
+              </div>
             </div>
           </div>
         ))}

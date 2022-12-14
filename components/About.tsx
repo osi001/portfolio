@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
+import { Typewriter } from "react-simple-typewriter";
 import { urlFor } from "../sanity";
 import { PageInfo } from "../typings";
 type Props = {
@@ -21,7 +22,7 @@ function About({ pageInfo }: Props) {
 
       <motion.img
         initial={{
-          x: -400,
+          x: -200,
           opacity: 0,
         }}
         transition={{
@@ -32,7 +33,7 @@ function About({ pageInfo }: Props) {
           x: 0,
         }}
         viewport={{
-          once: false,
+          once: true,
         }}
         src={urlFor(pageInfo[0]?.heroImage).url()}
         alt=""
@@ -59,7 +60,15 @@ function About({ pageInfo }: Props) {
         className="space-y-5 px-3 md:px-10"
       >
         <h4 className="text-xl md:text-2xl xl:text-4xl  font-semibold">
-          Here is a Little Background
+          <Typewriter
+            words={[" Here is a Little Background"]}
+            loop={2}
+            cursor
+            cursorStyle="_"
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
         </h4>
 
         <p className="text-sm md:text-lg ">
