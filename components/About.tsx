@@ -1,8 +1,13 @@
 import { motion } from "framer-motion";
 import React from "react";
-type Props = {};
+import { Typewriter } from "react-simple-typewriter";
+import { urlFor } from "../sanity";
+import { PageInfo } from "../typings";
+type Props = {
+  pageInfo: PageInfo[];
+};
 
-function About({}: Props) {
+function About({ pageInfo }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -17,7 +22,7 @@ function About({}: Props) {
 
       <motion.img
         initial={{
-          x: -400,
+          x: -200,
           opacity: 0,
         }}
         transition={{
@@ -28,9 +33,9 @@ function About({}: Props) {
           x: 0,
         }}
         viewport={{
-          once: false,
+          once: true,
         }}
-        src="https://media.gq.com/photos/56d865249acdcf20275f1581/master/w_3000,h_4045,c_limit/kevin-hart-bomber-jacket.jpg"
+        src={urlFor(pageInfo[0]?.heroImage).url()}
         alt=""
         className="relatve p-2 -mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full
          object-cover md:rounded-lg  md:w-65 md:h-95 xl:w-[500px] xl:h-[600px]"
@@ -40,7 +45,6 @@ function About({}: Props) {
         initial={{
           x: 100,
           opacity: 0.5,
-          scale: 0.8,
         }}
         animate={{
           x: 0,
@@ -53,18 +57,22 @@ function About({}: Props) {
         viewport={{
           once: false,
         }}
-        className="space-y-10 px-10 md:px-10"
+        className="space-y-5 px-3 md:px-10"
       >
-        <h4 className="text-4xl font-semibold">Here is a Little Background</h4>
-        <p>
-          Hi, im Osiano, a recent computer Science graduate currently
-          specialising in front-end techmologies, looking for a graduate or
-          entry role as a software developer. I am expertly trained in Object
-          Oriented Programming, Agile practices for the full Software
-          Development Life Cycle. I am a natural logical thinker with a love and
-          passion for prolem solving My INTP MTBI personality type is an
-          attestation to a naturally agile and curios mind with a love for
-          problem solving and learning new technologies
+        <h4 className="text-xl md:text-2xl xl:text-4xl  font-semibold">
+          <Typewriter
+            words={[" Here is a Little Background"]}
+            loop={2}
+            cursor
+            cursorStyle="_"
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
+        </h4>
+
+        <p className="text-sm md:text-lg ">
+          {pageInfo[0]?.backgroundInformation}
         </p>
       </motion.div>
     </motion.div>

@@ -14,6 +14,7 @@ module.exports = {
       "www.clipartmax.com",
       "logospng.org",
       "upload.wikimedia.org",
+      "cdn.sanity.io",
     ],
   },
 };

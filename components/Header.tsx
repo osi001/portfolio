@@ -1,11 +1,13 @@
 import React from "react";
 import { SocialIcon } from "react-social-icons";
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { Social } from "../typings";
 
-type Props = {};
+type Props = {
+  socials: Social[];
+};
 
-function Header({}: Props) {
+function Header({ socials }: Props) {
   return (
     <header className=" sticky top-0 p-5 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center">
       <motion.div
@@ -22,31 +24,18 @@ function Header({}: Props) {
         transition={{
           duration: 2,
         }}
-        className="flex flex-row items-center"
+        className="flex flex-row flex-shrink-0 items-center"
       >
-        <SocialIcon
-          url="https://www.instagram.com/momoh.o/?next=%2Fmomoh.o%2F"
-          fgColor="black"
-          bgColor="transparent"
-        />
-        <SocialIcon
-          url="https://www.instagram.com/momoh.o/?next=%2Fmomoh.o%2F"
-          fgColor="gray"
-          bgColor="transparent"
-        />
-        <SocialIcon
-          url="https://www.instagram.com/momoh.o/?next=%2Fmomoh.o%2F"
-          fgColor="gray"
-          bgColor="transparent"
-        />
-        <SocialIcon
-          url="https://www.instagram.com/momoh.o/?next=%2Fmomoh.o%2F"
-          fgColor="gray"
-          bgColor="transparent"
-        />
+        {socials.map((social) => (
+          <SocialIcon
+            key={social._id}
+            url={social.url}
+            fgColor="gray"
+            bgColor="transparent"
+          />
+        ))}
       </motion.div>
-
-      <Link href="#contact">
+      <div>
         <motion.div
           initial={{
             x: 500,
@@ -63,18 +52,21 @@ function Header({}: Props) {
           }}
           className=" flex flex-row items-center text-gray-300 cursor-pointer"
         >
-          <SocialIcon
-            className=" cursor-pointer"
-            network="email"
-            fgColor="grey"
-            bgColor="transparent"
-          />
-          <p className="uppercase hidden md:inline-flex text-sm text-gray-400">
-            {" "}
-            Connect with me
-          </p>
+          <div>
+            <SocialIcon
+              className=" cursor-pointer"
+              network="whatsapp"
+              url="https://wa.me/+447861607475"
+              fgColor="grey"
+              bgColor="transparent"
+            />
+
+            <p className="uppercase hidden md:inline-flex text-sm text-gray-400">
+              Osiano Momoh
+            </p>
+          </div>
         </motion.div>
-      </Link>
+      </div>
     </header>
   );
 }

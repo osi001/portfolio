@@ -1,17 +1,28 @@
 import Head from "next/head";
-import { NextPage } from "next";
+import { GetStaticProps } from "next";
 import styles from "../styles/Home.module.css";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import About from "../components/About";
-import Project from "../components/Project";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import ContactMe from "../components/ContactMe";
-import Link from "next/link";
 import { ArrowUpIcon } from "@heroicons/react/20/solid";
+import Link from "next/link";
+import { PageInfo, Project, Skill, Social } from "../typings";
+import { fetchPageInfo } from "../utils/fetchPageInfo";
+import { fetchSkills } from "../utils/fetchSkills";
+import { fetchProjects } from "../utils/fetchProject";
+import { fetchSocials } from "../utils/fetchSocials";
 
-const Home: NextPage = () => {
+type Props = {
+  pageInfo: PageInfo[];
+  skills: Skill[];
+  projects: Project[];
+  socials: Social[];
+};
+
+const Home = ({ pageInfo, skills, projects, socials }: Props) => {
   return (
     <div
       className=" bg-[rgb(11,11,11)] text-white h-screen snap-y snap-mandatory overflow-x-hidden overflow-y-scroll z-0
@@ -21,26 +32,26 @@ const Home: NextPage = () => {
         <title>Portfolio</title>
       </Head>
 
-      <Header />
+      <Header socials={socials} />
 
       <section id="hero" className="snap-center">
-        <Hero />
+        <Hero pageInfo={pageInfo} />
       </section>
       <br />
 
       <section id="about" className=" snap-center">
-        <About />
+        <About pageInfo={pageInfo} />
       </section>
       <br />
       <br />
 
       <section id="projects" className="snap-center">
-        <Projects />
+        <Projects projects={projects} />
       </section>
       <br />
 
       <section id="skills" className="snap-center">
-        <Skills />
+        <Skills skills={skills} />
       </section>
 
       {/* Experience */}
@@ -49,18 +60,39 @@ const Home: NextPage = () => {
         <ContactMe />
       </section>
 
-      <Link href="#hero">
-        <footer className="sticky bottom-5 w-full cursor-pointer">
+      <footer className="sticky bottom-5 w-full cursor-pointer">
+        <Link href="#hero">
           <div className=" p-1 flex items-baseline justify-between">
             <ArrowUpIcon
-              className=" h-8 w-8 rounded-full filter  hover:grayscale-0
+              className=" h-8 w-8 rounded-full filter text-gray-500  hover:grayscale-0
        cursor-pointer"
             />
           </div>
-        </footer>
-      </Link>
+        </Link>
+      </footer>
     </div>
   );
 };
 
 export default Home;
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const pageInfo: PageInfo[] = await fetchPageInfo();
+  const skills: Skill[] = await fetchSkills();
+  const projects: Project[] = await fetchProjects();
+  const socials: Social[] = await fetchSocials();
+
+  return {
+    props: {
+      pageInfo,
+      skills,
+      projects,
+      socials,
+    },
+
+    //Next.js will attempt to re-generate the page
+    // - when a req comes in
+    // - at most every 10 secs
+    revalidate: 10,
+  };
+};
