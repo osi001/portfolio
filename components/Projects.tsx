@@ -42,7 +42,7 @@ export default function Projects({ projects }: Props) {
               width={500}
             />
 
-            <div className="space-y-10 md:px-5 max-w-full">
+            <div className="space-y-5 md:px-5 max-w-full">
               <h4 className=" text-2xl md:text-2xl xl:text-4xl font-semibold text-center text-gray-300">
                 {/* <span className=" text-xl underline decoration-white ">
                   {" "}
